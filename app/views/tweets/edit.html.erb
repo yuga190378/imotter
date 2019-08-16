@@ -1,0 +1,21 @@
+<div class="contents">
+  <h5 class="center">編集する</h5>
+  <!--<%= form_tag("/tweets/#{@tweet.id}", method: :patch, class: "clearfix") do %>
+    <%= image_tag('imo.jpg') %>
+    <div class="input-box">
+      <textarea cols="30" name="text" rows="4"><%= @tweet.text %></textarea>
+    </div>
+    <div class="button-box">
+      <input type="submit" class="submit-button">
+    </div>
+  <% end %>-->
+  <%= form_with model: @tweet, class: "clearfix" do |f|%>
+    <%= image_tag('imo.jpg', class: "img-icon") %>
+    <div class="input-box input-field">
+      <%= f.text_area :text, size: "30x4", class: "materialize-textarea back-white"%>
+    </div>
+    <div class="btn waves-effect waves-light right">
+      <%= f.submit "更新" %>
+    </div>
+  <% end %>
+</div>

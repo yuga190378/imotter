@@ -1,0 +1,32 @@
+<div class="contents">
+  <h5 class="center">Sign up</h5>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="input-field">
+      <%= f.label :nickname %><br />
+      <%= f.text_field :nickname, autofocus: true, maxlength: "10", :placeholder => 'ニックネームを入力' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, :placeholder => 'メールアドレスを入力'%>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @validatable %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", :placeholder => 'パスワードを入力' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'パスワードを入力(確認)' %>
+    </div>
+
+    <div class="btn waves-effect waves-light">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+</div>

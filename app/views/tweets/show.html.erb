@@ -1,0 +1,47 @@
+<div class="contents">
+  <div class="message clearfix">
+    <%= image_tag('imo.jpg') %>
+    <div class="message_box">
+      <p class="user_name">
+        <%= link_to @tweet.user.nickname, "/users/#{@tweet.user_id}" %>
+      </p>
+      <p class="text">
+        <%= simple_format(@tweet.text) %>
+      </p>
+    </div>
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <div class="float-link">
+        <ul>
+          <li>
+            <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <%= form_with url: "/tweets/#{@tweet.id}/comments",  class: "clearfix" do |f|%>
+    <div class="input-box input-field">
+      <%= f.text_area :text, size: "30x2", id: "note", class: "materialize-textarea back-white" %>
+      <label for="note">コメントする</label>
+    </div>
+    <div class="waves-effect waves-light btn right">
+      <%= f.submit "コメント" %>
+    </div>
+  <% end %>
+  <h5 class="center">コメント一覧</h2>
+  <% @comments.each do |comment| %>
+    <div class="message clearfix">
+      <div class="message_box comment">
+        <p class="user_name">
+          <%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>
+        </p>
+        <p class="text">
+          <%= simple_format(comment.text) %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Imotter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <nav class="header-fixed grey">
+      <div class="nav-wrapper">
+        <%= link_to "いもったー", "/", class: "brand-logo center" %>
+        <% if user_signed_in? %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class='dropdown-trigger' data-target='dropdown1'><%= current_user.nickname %></li>
+            <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "投稿する", "/tweets/new" %></li>
+          </ul>
+          <ul id="dropdown1" class='dropdown-content'>
+            <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+    <div class="footer"></div>
+  </body>
+</html>
