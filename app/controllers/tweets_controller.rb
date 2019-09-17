@@ -27,7 +27,7 @@ class TweetsController < ApplicationController
   def update
     tweet = Tweet.find(params[:id])
     tweet.update(edit_params) if tweet.user_id == current_user.id
-    redirect_to action: :index
+    redirect_to root_path
   end
 
   def show
