@@ -19,8 +19,8 @@ $(function(){
             "preventDuplicates": true,
             "showDuration": "300",
             "hideDuration": "1000",
-            "timeOut": -3000,
-            "extendedTimeOut": 0
+            "timeOut": "-3000",
+            "extendedTimeOut": "0"
           }
           toastr.info(`新しい投稿があります<br /><br /><a href="/tweets" class="btn waves-effect waves-light toastr-reset">表示</a>`);
         }
@@ -30,9 +30,7 @@ $(function(){
     });
   };
 
-  $('.header-fixed').hover(function(){
-    
-  });
+  
 
   var controller = $('body').data('controller');
   var action = $('body').data('action');
