@@ -9,23 +9,37 @@
     </p>
   </div>
   <div class="float-link">
-      <ul>
-        <li>
-          <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
-        </li>
-        <% if user_signed_in? && current_user.id == tweet.user_id %>
-          <li>
-            <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
-          </li>
-        <% end %>
-      </ul>
+    <% if user_signed_in? && current_user.id == tweet.user_id %>
+      <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>メニュー</a>
+    <% else %>
+      <a class='dropdown-trigger btn' href='#' data-target='dropdown2'>メニュー</a>
+    <% end %>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li>
+        <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+      </li>
+      <li>
+        <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+      </li>
+      <li>
+        <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+      </li>
+    </ul>
+    <ul id='dropdown2' class='dropdown-content'>
+      <li>
+        <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+      </li>
+    </ul>
   </div>
 
   <a href="/tweets/<%= tweet.id %>" class="comment-count"><i class="material-icons left">message</i><%= tweet.comments.count %></a>
   <!--<div class="right">
     <%= tweet.created_at %>
   </div>-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      var instances = M.Dropdown.init(elems, []);
+    });
+  </script>
 </div>
