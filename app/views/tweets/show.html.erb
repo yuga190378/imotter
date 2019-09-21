@@ -1,6 +1,6 @@
 <div class="contents">
   <div class="message clearfix">
-    <%= image_tag('imo.jpg') %>
+    <%= image_tag(@tweet.user.icon) %>
     <div class="message_box">
       <p class="user_name">
         <%= link_to @tweet.user.nickname, "/users/#{@tweet.user_id}" %>
@@ -22,7 +22,7 @@
       </div>
     <% end %>
   </div>
-  <%= form_with url: "/tweets/#{@tweet.id}/comments",  class: "clearfix" do |f|%>
+  <%= form_with url: "/tweets/#{@tweet.id}/comments", local: true, class: "text-field-block clearfix" do |f|%>
     <div class="input-box input-field">
       <%= f.text_area :text, size: "30x2", id: "note", class: "materialize-textarea back-white" %>
       <label for="note">コメントする</label>

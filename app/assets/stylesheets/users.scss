@@ -1,3 +1,20 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.carousel-item{
+  width: 200px;
+  height: 200px;
+}
+
+label img {
+  margin: 3px;
+  padding: 8px;
+}
+
+.radio-select input[type="radio"] {
+  display: none;
+}
+
+.radio-select input[type="radio"]:checked + label img {
+  background: orange;
+}

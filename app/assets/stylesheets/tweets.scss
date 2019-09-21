@@ -43,7 +43,7 @@ h2{
 
 .contents{
   height: auto;
-  width: 700px;
+  width: 600px;
   margin: 0 auto;
   padding-top: 70px;
 }
@@ -62,7 +62,6 @@ form img{
   border: 1px solid #ccc;
   border-radius: 5px;
   float: left;
-  height: 24px;
   margin: 0 5px 5px 34px;
 }
 
@@ -80,7 +79,7 @@ form textarea{
   min-height: 80px;
   max-height: 100%;
   height: auto;
-  width: 650px;
+  width: 598px;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid #bbb;
@@ -148,4 +147,8 @@ form textarea{
   border-radius: 10px;
   clear: both;
   display: inline-block;
+}
+
+.user-icon{
+  height: 24px;
 }

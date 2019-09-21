@@ -9,7 +9,7 @@
       <input type="submit" class="submit-button">
     </div>
   <% end %>-->
-  <%= form_with model: @tweet, class: "clearfix" do |f|%>
+  <%= form_with model: @tweet, local: true, class: "clearfix" do |f|%>
     <%= image_tag('imo.jpg', class: "img-icon") %>
     <div class="input-box input-field">
       <%= f.text_area :text, size: "30x4", class: "materialize-textarea back-white"%>

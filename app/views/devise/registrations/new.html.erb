@@ -25,6 +25,51 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'パスワードを入力(確認)' %>
     </div>
 
+    <div class="carousel">
+      <div class="carousel-item">
+        <label>
+          <%= f.radio_button :icon, 'imo.jpg', class: 'radio-select', checked: true%>
+          <%= image_tag("imo.jpg", class: 'radio-img')%>
+        </label>
+      </div>
+      <div class="carousel-item">
+        <label>
+          <%= f.radio_button :icon, 'imo2.png'%>
+          <%= image_tag("imo2.png", class: 'radio-img')%>
+        </label>
+      </div>
+      <div class="carousel-item">
+        <label>
+          <%= f.radio_button :icon, 'imo3.jpeg'%>
+          <%= image_tag("imo3.jpeg", class: 'radio-img')%>
+        </label>
+      </div>
+      <div class="carousel-item">
+        <label>
+          <%= f.radio_button :icon, 'imo4.jpeg'%>
+          <%= image_tag("imo4.jpeg", class: 'radio-img')%>
+        </label>
+      </div>
+      <div class="carousel-item">
+        <label>
+          <%= f.radio_button :icon, 'imo5.jpeg'%>
+          <%= image_tag("imo5.jpeg", class: 'radio-img')%>
+        </label>
+      </div>
+      <div class="carousel-item">
+        <label>
+          <%= f.radio_button :icon, 'imo6.jpeg'%>
+          <%= image_tag("imo6.jpeg", class: 'radio-img')%>
+        </label>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, []);
+      });
+    </script>
+
     <div class="btn waves-effect waves-light">
       <%= f.submit "Sign up" %>
     </div>

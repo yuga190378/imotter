@@ -1,7 +1,7 @@
 <div class="contents">
   <h5 class="center">投稿する</h5>
-  <%= form_with url:tweets_path, local: true, class: "clearfix" do |f|%>
-    <%= image_tag('imo.jpg', class: "img-icon") %>
+  <%= form_with url:tweets_path, local: true, class: "text-field-block clearfix" do |f|%>
+    <%= image_tag(current_user.icon, class: "img-icon") %>
     <div class="input-box input-field">
       <%= f.text_area :text, size: "30x4", id: "note", class: "materialize-textarea back-white"%>
       <label for="note">投稿内容</label>
